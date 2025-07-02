@@ -16,11 +16,11 @@ public extension View {
                     .opacity(0.25)
                     .edgesIgnoringSafeArea(.all)
                     .animation(.easeInOut(duration: 0.3))
+                    .onTapGesture {
+                        isPresented = false
+                    }
                 CustomDialog(isPresented: isPresented, bodyContent: bodyContent, cancelContent: cancelContent)
             }
-        }
-        .onTaoGesture {
-            isPresented = false
         }
     }
     func dialogAction(_ action: @escaping () -> Void) -> DialogButton<Self> {

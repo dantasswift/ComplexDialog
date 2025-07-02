@@ -16,6 +16,9 @@ public extension View {
                     .opacity(0.25)
                     .edgesIgnoringSafeArea(.all)
                     .animation(.easeInOut(duration: 0.3))
+                    .onTaoGesture {
+                        isPresented = false
+                    }
                 CustomDialog(isPresented: isPresented, bodyContent: bodyContent, cancelContent: cancelContent)
             }
         }

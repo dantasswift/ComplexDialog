@@ -18,7 +18,7 @@ public extension View {
                     .edgesIgnoringSafeArea(.all)
                     .animation(.easeInOut(duration: 0.3))
                     .onTapGesture {
-                        NotificationCenter.onDismiss()
+                        NotificationCenter.dismissDialog()
                     }
                 CustomDialog(isPresented: isPresented, bodyContent: bodyContent, cancelContent: cancelContent)
             }

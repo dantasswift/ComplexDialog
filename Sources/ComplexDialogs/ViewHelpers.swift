@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 public extension View {
     @ViewBuilder func presentDialog(isPresented: Binding<Bool>, @ButtonsResultBuilder bodyContent: @escaping () -> some View, @ButtonsResultBuilder cancelContent: @escaping () -> some View) -> some View {
@@ -17,7 +18,7 @@ public extension View {
                     .edgesIgnoringSafeArea(.all)
                     .animation(.easeInOut(duration: 0.3))
                     .onTapGesture {
-                        isPresented = false
+                        NotificationCenter.onDismiss()
                     }
                 CustomDialog(isPresented: isPresented, bodyContent: bodyContent, cancelContent: cancelContent)
             }
